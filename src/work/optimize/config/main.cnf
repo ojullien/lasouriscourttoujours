@@ -1,0 +1,47 @@
+## -----------------------------------------------------
+## LaSouris.
+## Main Configuration file.
+##
+## @package ojullien\lasouriscourttoujours\work\optimize\config
+## @license MIT <https://github.com/ojullien/lasouriscourttoujours/blob/master/LICENSE>
+## -----------------------------------------------------------------------------
+
+## -----------------------------------------------------
+## Date
+## -----------------------------------------------------
+m_DATE="$(/bin/date +"%Y%m%d")_$(/bin/date +"%H%M")"
+
+## -----------------------------------------------------
+## Main Directories
+## -----------------------------------------------------
+# Directory holds scripts
+m_DIR_SCRIPT=`pwd`
+# Working directory
+m_DIR="$(/usr/bin/dirname ${m_DIR_SCRIPT})"
+# Directory holds configuration files
+m_DIR_CONFIG=$m_DIR_SCRIPT/config
+
+## -----------------------------------------------------
+## Main Files
+## -----------------------------------------------------
+m_LOGFILE=$m_DIR_SCRIPT/log/$(/bin/date +"%Y%m%d")_$(/bin/date +"%H%M")_$(/usr/bin/basename "$0").log
+
+## -----------------------------------------------------
+## Packages
+## -----------------------------------------------------
+m_PACKAGES_PURGE="brltty brltty-x11"
+m_PACKAGES_SYSTEM="deborphan xubuntu-restricted-extras ppa-purge gksu gdebi gtk2-engines qt4-qtconfig tlp gufw"
+m_PACKAGES_APP="rar unrar p7zip gedit gedit-plugins libreoffice-l10n-fr libreoffice-help-fr hyphen-fr libreoffice-gtk"
+m_PACKAGES_XFCE="gtk3-engines-xfce xfce4-goodies xfwm4-themes"
+m_PACKAGES_VIDEO="gxine libdvdread4 icedax tagtool easytag id3tool lame nautilus-script-audio-convert libmad0 mpg321 libavcodec-extra"
+
+## -----------------------------------------------------
+## Trace
+## -----------------------------------------------------
+display "-----------------------------------------------------"
+notice " Main Configuration:"
+checkDir "\tWorking directory:\t\t\t${m_DIR}" $m_DIR
+checkDir "\tScript directory:\t\t\t${m_DIR_SCRIPT}" $m_DIR_SCRIPT
+checkDir "\tConfiguration directory:\t\t${m_DIR_CONFIG}" $m_DIR_CONFIG
+checkFile "\tLog file is:\t\t\t\t${m_LOGFILE}" $m_LOGFILE
+display "-----------------------------------------------------"
